@@ -30,4 +30,5 @@ int angleClock(int h, int m) {
 		result = 360 - result;
 
 	return (int)result;
+	
 }
