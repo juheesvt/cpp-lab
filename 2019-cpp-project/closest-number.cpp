@@ -20,47 +20,21 @@ int main() {
 
 int closestNumber(int n, int m) {
 
-	int closeNum;
+	int absN = n > 0 ? n : -n;
+	int absM = m > 0 ? m : -m;
 
-	int diffMinus = -1;
-	int diffPlus =-1;
+	if (absN < m) 
+		return n > 0 ? m : -m;
 
-	for (int kp = n, km = n; ; ++kp, --km) {
-		
-		if (kp % m == 0 && kp != 0)
-			diffPlus = n - kp >= 0 ? n - kp : kp - n;
-		
-		if (km % m == 0 && km != 0)
-			diffMinus = n - km >= 0 ? n - km : km - n;
+	int remainder = absN % absM ;
 
-	
-		if (diffPlus != -1 || diffMinus != -1) {
+	if (remainder == absM - remainder)
+		return n > 0 ? n + remainder : n - remainder;
 
-			if (diffPlus == -1 && diffMinus != -1) {
-				closeNum = km;
-				break;		
-			}
+	else if (remainder < absM - remainder)
+		return n > 0 ? n - remainder : n + remainder;
 
-			else if (diffPlus != -1 && diffMinus == -1) {
-				closeNum = kp;
-				break;
-			}
-			else {
+	else
+		return n > 0 ? n + (absM - remainder) : n - (absM - remainder);
 
-				if (diffPlus == diffMinus) {
-
-					int temp_km = km;
-					int temp_kp = kp;
-
-					km = km >= 0 ? km : -km;
-					kp = kp >= 0 ? kp : -kp;
-
-					closeNum = kp > km ? temp_kp : temp_km;
-					break;
-				}
-			}
-		}				
-	}
-	
-	return closeNum;
 }
