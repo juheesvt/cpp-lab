@@ -22,18 +22,20 @@ void outputPyramid(int n, int k) {
 
 	for (int i = 1; i <= n; ++i) {
 		int sum = 0;
-		for (int j = 0; j < i; ++j) {
-			if (!j) {
-				cout << i;
-				sum += i;
+		if (i == k) {
+			for (int j = 0; j < i; ++j) {
+				if (!j) {
+					cout << i;
+					sum += i;
+				}
+				else {
+					cout << sum + (n - j);
+					sum += (n - j);
+				}
+				if (j < i - 1)
+					cout << '*';
 			}
-			else {
-				cout << sum + (n - j);
-				sum += (n - j);
-			}
-			if (j < i-1)
-				cout << '*';
 		}
-		cout << endl;
 	}
+	cout << endl;
 }
