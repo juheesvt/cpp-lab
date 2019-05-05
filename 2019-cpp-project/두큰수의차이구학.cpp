@@ -14,13 +14,10 @@ int main() {
 			if (n >= max) {
 				max2 = max;
 				max = n;
-
 			}
 			if (n > max2 && n != max)
 				max2 = n;
-
 		}
-		
 		cout << max - max2 << endl;
 
 	}

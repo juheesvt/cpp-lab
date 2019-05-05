@@ -17,29 +17,16 @@ int main() {
 
 int answer(long long n) {
 	int nArr[15] = { 0, };
-	int target=0;
-
-	int evenSum = 0;
-	int oddSum = 0;
-	int i = 0;
-	int cnt = 0;
+	int target=0, evenSum = 0, oddSum = 0, i = 0, cnt = 0;
 	while (true) {
-		
-
-
-
-
 		target = n % 10;
 		n /= 10;
 
 		nArr[14 - i] = target;
-		i++;
-		cnt++;
-
-		if (!n)
-			break;
+		i++, cnt++;
+		
+		if (!n)		break;
 	}
-
 	for (int i = 0; i < 15; i++) {
 		if (nArr[i] > 0) {
 			for (int j = 1; j <= cnt; j++) {
@@ -47,7 +34,6 @@ int answer(long long n) {
 					evenSum += nArr[i];
 				else
 					oddSum += nArr[i];
-
 				i++;
 			}
 			break;
